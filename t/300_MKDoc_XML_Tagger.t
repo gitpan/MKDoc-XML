@@ -6,6 +6,7 @@ use warnings;
 use MKDoc::XML::Tagger;
 use MKDoc::XML::Tokenizer;
 
+
 # _tag_close and _tag_open functions
 {
     my $tag = MKDoc::XML::Tagger::_tag_close ('strong');
@@ -51,27 +52,6 @@ EOF
 }
 
 
-# now scary stuff... let's try the text_replace() method
-# make a few tests...
-{
-    my $r = undef;
-    $r = MKDoc::XML::Tagger::_text_replace ('Hello, World!', 'HeLLo, wOrLd!', 'strong');
-    is ($r, '<strong>Hello, World!</strong>');
-    
-    $r = MKDoc::XML::Tagger::_text_replace ('YO: Hello, World!', 'HeLLo, wOrLd!', 'strong');
-    is ($r, 'YO: <strong>Hello, World!</strong>');   
-
-    $r = MKDoc::XML::Tagger::_text_replace ('Hello, World! :OY', 'HeLLo, wOrLd!', 'strong');
-    is ($r, '<strong>Hello, World!</strong> :OY');
-
-    $r = MKDoc::XML::Tagger::_text_replace ('YO: Hello, World! :OY', 'HeLLo, wOrLd!', 'strong');
-    is ($r, 'YO: <strong>Hello, World!</strong> :OY');
-    
-    $r = MKDoc::XML::Tagger::_text_replace ('YO: Hello, my &(1)Cool&(2) World! :OY', 'my cool', 'em');
-    is ($r, 'YO: Hello, <em>my </em>&(1)<em>Cool</em>&(2) World! :OY');
-}
-
-
 # more nasty test
 {
     my $r = MKDoc::XML::Tagger->process_data (
@@ -87,6 +67,26 @@ EOF
        );
     like ($r, qr/<a/);
 }
+
+
+# more nasty test
+{
+    my $r = MKDoc::XML::Tagger->process_data (
+        '<p>News foo bar<strong>Statements</strong>, declarations</p>',
+        {
+            '_expr' => 'news',
+            'href' => 'http://news.com/',
+            '_tag' => 'a',
+        },
+        {
+            '_expr' => 'News',
+            'lang' => 'en',
+            'href' => 'http://users.groucho/news/',
+            '_tag' => 'a',
+        }
+    );
+}
+
 
 {
     my $data = qq |<span><p>&lt;p&gt;this is a test, hello world, this is a test&lt;/p&gt;</p></span>|;

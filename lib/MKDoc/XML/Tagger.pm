@@ -18,7 +18,7 @@ use strict;
 use warnings;
 use utf8;
 
-
+our $tags = [];
 our $Ignorable_RE = qr /(?:\r|\n|\s|(?:\&\(\d+\)))*/;
 
 
@@ -73,8 +73,9 @@ sub _replace
 {
     my $tokens = shift;
     my @expr   = sort { length ($b->{_expr}) <=> length ($a->{_expr}) } @_;
-
-    my ($text, $tags) = _segregate_markup_from_text ($tokens);
+    
+    my $text; local $tags;
+    ($text, $tags) = _segregate_markup_from_text ($tokens);
     
     while (my $attr = shift (@expr))
     {
@@ -120,7 +121,13 @@ sub _text_replace
         my $replacement = $_;
         $replacement =~ s/(\&\(\d+\))/$tag2$1$tag1/g;
         $replacement = "$tag1$replacement$tag2";
-        $text =~ s/$to_replace/$replacement/g;
+	
+	# Double hyperlinking fix
+	# JM - 2004-01-23
+	push @{$tags}, $replacement;
+	my $rep = '&(' . @{$tags} . ')';
+	
+        $text =~ s/$to_replace/$rep/g;
     }
     
     return $text;
