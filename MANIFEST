@@ -13,7 +13,10 @@ lib/MKDoc/XML/Token.pm
 lib/MKDoc/XML/Tokenizer.pm
 lib/MKDoc/XML/TreeBuilder.pm
 t/000_MKDoc_XML_Token.t
+t/001_MKDoc_XML_Token_tag_open.t
+t/002_MKDoc_XML_Token_tag_self_close.t
 t/100_MKDoc_XML_Tokenizer.t
+t/101_MKDoc_XML_Tokenizer_Comment.t
 t/200_MKDoc_XML_TreeBuilder.t
 t/300_MKDoc_XML_Tagger.t
 t/400_MKDoc_XML_Stripper.t

@@ -172,7 +172,8 @@ sub is_tag_open
     $$self !~ /\/>$/ and
     $$self !~ /^<\?/ and    
     $$self =~ /^</   and do {
-	my %node      = ($$self =~ /((?:\w|:)+)=\"(.*?)\"/gs), ($$self =~ /((?:\w|:)+)=\'(.*?)\'/gs);
+	my %node      = ($$self =~ /((?:\w|:|-)+)\s*=\s*\"(.*?)\"/gs,
+	                 $$self =~ /((?:\w|:|-)+)\s*=\s*\'(.*?)\'/gs);
 	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
 	$node{_open}  = 1;
 	$node{_close} = 0;
@@ -192,11 +193,11 @@ sub is_tag_open
 sub is_tag_close
 {
     my $self = shift;
-    my $node  = undef;
+    my $node = undef;
     $$self !~ /^<\!/ and
     $$self =~ /^<\// and
     $$self !~ /\/>$/ and do {
-	my %node      = ($$self =~ /((?:\w|:)+)=\"(.*?)\"/gs), ($$self =~ /((?:\w|:)+)=\'(.*?)\'/gs);
+        my %node      = ();
 	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
 	$node{_open}  = 0;
 	$node{_close} = 1;
@@ -221,8 +222,9 @@ sub is_tag_self_close
     $$self !~ /^<\// and
     $$self =~ /\/>$/ and
     $$self =~ /^</   and do {
-	my %node      = ($$self =~ /((?:\w|:)+)=\"(.*?)\"/gs), ($$self =~ /((?:\w|:)+)=\'(.*?)\'/gs);
-	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]+)/;
+	my %node      = ($$self =~ /((?:\w|:|-)+)\s*=\s*\"(.*?)\"/gs,
+	                 $$self =~ /((?:\w|:|-)+)\s*=\s*\'(.*?)\'/gs);
+	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
 	$node{_open}  = 1;
 	$node{_close} = 1;
 	$node = \%node;

@@ -31,6 +31,22 @@ see as a standalone CPAN module, send an email to
 <mkdoc-modules@lists.webarch.co.uk>.
 
 
+=head1 DISCLAIMER 
+
+=over
+
+=item B<MKDoc::XML is a low level XML library.>
+
+=item MKDoc::XML::* modules do not make sure your XML is well-formed.
+
+=item MKDoc::XML::* modules can be used to work with somehow broken XML.
+
+=item MKDoc::XML::* modules should not be used as high-level parsers with
+      general purpose XML unless you know what you're doing.
+
+=back
+
+
 =head1 WHAT'S IN THE BOX
 
 
@@ -85,16 +101,6 @@ It is also able of doing the reverse operation, i.e. deserializing an XML string
 a perl structure.
 
 
-=head1 TODO
-
-Write a L<Petal> parser based on L<MKDoc::XML::Tokenizer>. Since Petal is part
-of the MKDoc open-source effort, it makes sense for Petal to rely primarily on
-MKDoc::XML, especially since MKDoc::XML::* modules are pure perl.
-
-This would bring some extra consistency across MKDoc module distributions
-and remove the Petal dependency on XML::Parser.
-
-
 =head1 AUTHOR
 
 Copyright 2003 - MKDoc Holdings Ltd.
@@ -115,4 +121,3 @@ Help us open-source MKDoc. Join the mkdoc-modules mailing list:
   mkdoc-modules@lists.webarch.co.uk
 
 =cut
-

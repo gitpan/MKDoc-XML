@@ -69,7 +69,10 @@ sub process_data
     $xml =~ s/^(?:\s|\r|\n)*\</\</s;
     $xml =~ s/\>(?:\s|\r|\n)*$/\>/s;
     
-    my @res = map { bless \$_, 'MKDoc::XML::Token' } $xml =~ /$XML_SPE/go;   
+    my @res = map {
+       /<!--/ and /--$/ and die "invalid comment token: $_";
+       bless \$_, 'MKDoc::XML::Token';
+    } $xml =~ /$XML_SPE/go;   
     return \@res;
 }
 
@@ -141,6 +144,12 @@ technique to parse XML (ignore the carriage returns):
   t\r]+)?/?>?)?)
 
 That's right. One big regex, and it works rather well.
+
+
+=head1 DISCLAIMER
+
+B<This module does low level XML manipulation. It will somehow parse even broken XML
+and try to do something with it. Do not use it unless you know what you're doing.>
 
 
 =head1 API

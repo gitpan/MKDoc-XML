@@ -159,8 +159,13 @@ XML parsers generally support namespaces. MKDoc::XML::TreeBuilder doesn't -
 and probably won't.
 
 
-=head1 API
+=head1 DISCLAIMER
 
+B<This module does low level XML manipulation. It will somehow parse even broken XML
+and try to do something with it. Do not use it unless you know what you're doing.>
+
+
+=head1 API
 
 =head2 my @top_nodes = MKDoc::XML::Tokenizer->process_data ($some_xml);
 

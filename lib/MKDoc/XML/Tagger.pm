@@ -265,6 +265,12 @@ MKDoc::XML::Tagger is also probably a very good tool if you are building some ki
 system in which you want expressions to be automagically hyperlinked.
 
 
+=head1 DISCLAIMER
+
+B<This module does low level XML manipulation. It will somehow parse even broken XML
+and try to do something with it. Do not use it unless you know what you're doing.>
+
+
 =head1 API
 
 The API is very simple.

@@ -1,5 +1,12 @@
 Revision history for MKDoc::XML 
 
+0.4 Fri Sep 19 12:15:23 BST 2003
+    - Fixed Robin Berjon's reported bug about tokenizer not dying on invalid comment
+    - Fixed MKDoc::XML::Token incorrectly parsing attributes in single quotes
+    - Fixed MKDoc::XML::Token not parsing attributes spanned on many lines
+    - Fixed bogus regexes in is_self_close() method
+    - Fixed MKDoc::XML::Token not parsing attributes containing '-'
+
 0.3 Wed Sep 17 15:40:50 2003
     - Fixed patrick's reported bug "XML::Stripper" not compiling
     - Fixed patrick's reported bug "p tag not closing"

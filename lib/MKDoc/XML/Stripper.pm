@@ -170,6 +170,12 @@ i.e. strip anything which looks like a <font> tag, a 'style' attribute or other 
 which would break separation of structure from content.
 
 
+=head1 DISCLAIMER
+
+B<This module does low level XML manipulation. It will somehow parse even broken XML
+and try to do something with it. Do not use it unless you know what you're doing.>
+
+
 =head1 API
 
 
