@@ -14,6 +14,7 @@ use MKDoc::XML::Token;
 use strict;
 use warnings;
 
+our $prev_token;
 
 # REX/Perl 1.0 
 # Robert D. Cameron "REX: XML Shallow Parsing with Regular Expressions",
@@ -68,12 +69,32 @@ sub process_data
     # remove trailing whitespace
     $xml =~ s/^(?:\s|\r|\n)*\</\</s;
     $xml =~ s/\>(?:\s|\r|\n)*$/\>/s;
-    
-    my @res = map {
-       /<!--/ and /--$/ and die "invalid comment token: $_";
+
+    local ($prev_token) = '';
+    my @res  = map {
+       _check_001();
+       _check_002();
+       $prev_token = $_;
        bless \$_, 'MKDoc::XML::Token';
     } $xml =~ /$XML_SPE/go;   
+
     return \@res;
+}
+
+
+# <p foobar>
+sub _check_002
+{
+    $prev_token =~ /^</ or return;
+    $prev_token =~ />$/ or
+    die "cannot tokenize: $prev_token$_";
+}
+
+
+# <!-- stuff like -- that -->
+sub _check_001
+{
+    /^<!--/ and /--$/ and die "invalid comment token: $_";
 }
 
 
