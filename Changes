@@ -1,6 +1,10 @@
 Revision history for MKDoc::XML 
 
-0.4 Fri Sep 19 12:15:23 BST 2003
+0.5 Fri Sep 19 16:37:12 2003
+    - Improved MKDoc::XML::Encode and MKDoc::XML::Decode
+    - Added definition loading to MKDoc::XML::Stripper
+
+0.4 Fri Sep 19 12:15:23 2003
     - Fixed Robin Berjon's reported bug about tokenizer not dying on invalid comment
     - Fixed MKDoc::XML::Token incorrectly parsing attributes in single quotes
     - Fixed MKDoc::XML::Token not parsing attributes spanned on many lines

@@ -12,6 +12,16 @@ package MKDoc::XML::Encode;
 use warnings;
 use strict;
 
+our %XML_Encode = (
+    '&' => 'amp',
+    '<' => 'lt',
+    '>' => 'gt',
+    '"' => 'quot',
+    "'" => 'apos',
+);
+
+our $XML_Encode_Pattern = join ("|", keys %XML_Encode);
+
 
 sub process
 {
@@ -19,11 +29,7 @@ sub process
     
     my $class = shift;
     my $data = join '', map { (defined $_) ? $_ : '' } @_;
-    $data =~ s/\&/&amp;/g;
-    $data =~ s/\</&lt;/g;
-    $data =~ s/\>/&gt;/g;
-    $data =~ s/\"/&quot;/g;
-    $data =~ s/\'/&apos;/g;
+    $data =~ s/($XML_Encode_Pattern)/&$XML_Encode{$1};/go;
     return $data;
 }
 

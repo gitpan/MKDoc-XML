@@ -8,6 +8,7 @@ lib/MKDoc/XML/DecodeHO.pm
 lib/MKDoc/XML/Dumper.pm
 lib/MKDoc/XML/Encode.pm
 lib/MKDoc/XML/Stripper.pm
+lib/MKDoc/XML/Stripper/mkdoc16.txt
 lib/MKDoc/XML/Tagger.pm
 lib/MKDoc/XML/Token.pm
 lib/MKDoc/XML/Tokenizer.pm
@@ -21,6 +22,7 @@ t/200_MKDoc_XML_TreeBuilder.t
 t/300_MKDoc_XML_Tagger.t
 t/400_MKDoc_XML_Stripper.t
 t/401_MKDoc_XML_Stripper_p_not_closing.t
+t/402_MKDoc_XML_Stripper_def.t
 t/500_MKDoc_XML_Decode.t
 t/501_MKDoc_XML_DecodeHO.t
 t/502_MKDoc_XML_Encode.t

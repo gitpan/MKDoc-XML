@@ -1,0 +1,614 @@
+# mkdoc defaults 2003/05/16 chris
+
+a accesskey
+a charset
+a class
+a coords
+a dir
+a href
+a hreflang
+a id
+a lang
+a name
+a rel
+a rev
+a shape
+a tabindex
+a title
+a type
+a xml:lang
+
+abbr class
+abbr dir
+abbr id
+abbr lang
+abbr title
+abbr xml:lang
+
+acronym class
+acronym dir
+acronym id
+acronym lang
+acronym title
+acronym xml:lang
+
+address class
+address dir
+address id
+address lang
+address title
+address xml:lang
+
+area accesskey
+area alt
+area class
+area coords
+area dir
+area href
+area id
+area lang
+area nohref
+area shape
+area tabindex
+area title
+area xml:lang
+
+b class
+b dir
+b id
+b lang
+b title
+b xml:lang
+
+bdo class
+bdo dir
+bdo id
+bdo lang
+bdo title
+bdo xml:lang
+
+big class
+big dir
+big id
+big lang
+big title
+big xml:lang
+
+blockquote cite
+blockquote class
+blockquote dir
+blockquote id
+blockquote lang
+blockquote title
+blockquote xml:lang
+
+br class
+br clear
+br id
+br title
+
+button accesskey
+button class
+button dir
+button disabled
+button id
+button lang
+button tabindex
+button title
+button type
+button value
+button xml:lang
+
+caption class
+caption dir
+caption id
+caption lang
+caption title
+caption xml:lang
+
+cite class
+cite dir
+cite id
+cite lang
+cite title
+cite xml:lang
+
+code class
+code dir
+code id
+code lang
+code title
+code xml:lang
+code xml:space
+
+col class
+col dir
+col id
+col lang
+col span
+col title
+col width
+col xml:lang
+
+colgroup class
+colgroup dir
+colgroup id
+colgroup lang
+colgroup span
+colgroup title
+colgroup width
+colgroup xml:lang
+
+dd class
+dd dir
+dd id
+dd lang
+dd title
+dd xml:lang
+
+del cite
+del class
+del datetime
+del dir
+del id
+del lang
+del title
+del xml:lang
+
+dfn class
+dfn datetime
+dfn dir
+dfn id
+dfn lang
+dfn title
+dfn xml:lang
+
+div class
+div dir
+div id
+div lang
+div title
+div xml:lang
+
+dl class
+dl dir
+dl id
+dl lang
+dl title
+dl xml:lang
+
+dt class
+dt dir
+dt id
+dt lang
+dt title
+dt xml:lang
+
+em class
+em dir
+em id
+em lang
+em title
+em xml:lang
+
+fieldset class
+fieldset dir
+fieldset id
+fieldset lang
+fieldset title
+fieldset xml:lang
+
+form accept
+form accept-charset
+form class
+form dir
+form enctype
+form id
+form lang
+form method
+form name
+form title
+form xml:lang
+
+h1 class
+h1 dir
+h1 id
+h1 lang
+h1 title
+h1 xml:lang
+
+h2 class
+h2 dir
+h2 id
+h2 lang
+h2 title
+h2 xml:lang
+
+h3 class
+h3 dir
+h3 id
+h3 lang
+h3 title
+h3 xml:lang
+
+h4 class
+h4 dir
+h4 id
+h4 lang
+h4 title
+h4 xml:lang
+
+h5 class
+h5 dir
+h5 id
+h5 lang
+h5 title
+h5 xml:lang
+
+h6 class
+h6 dir
+h6 id
+h6 lang
+h6 title
+h6 xml:lang
+
+head id
+head lang
+
+hr class
+hr dir
+hr id
+hr lang
+hr title
+hr xml:lang
+
+i class
+i dir
+i id
+i lang
+i title
+i xml:lang
+
+img alt
+img class
+img dir
+img height
+img id
+img ismap
+img lang
+img longdesc
+img name
+img src
+img title
+img usemap
+img width
+img xml:lang
+
+input accept
+input accesskey
+input alt
+input checked
+input class
+input dir
+input disabled
+input id
+input ismap
+input lang
+input maxlength
+input name
+input readonly
+input size
+input src
+input tabindex
+input title
+input type
+input usemap
+input value
+input xml:lang
+
+ins cite
+ins class
+ins datetime
+ins dir
+ins id
+ins lang
+ins title
+ins xml:lang
+
+kbd class
+kbd dir
+kbd id
+kbd lang
+kbd title
+kbd xml:lang
+kbd xml:space
+
+label class
+label dir
+label for
+label id
+label lang
+label title
+label xml:lang
+
+legend accesskey
+legend class
+legend dir
+legend id
+legend lang
+legend title
+legend xml:lang
+
+li id
+li class
+li lang
+li xml:lang
+li dir
+li title
+
+map id
+map class
+map lang
+map xml:lang
+map dir
+map title
+map name
+
+object archive
+object class
+object classid
+object codebase
+object codetype
+object data
+object dir
+object height
+object id
+object lang
+object name
+object standby
+object tabindex
+object title
+object type
+object usemap
+object width
+object xml:lang
+
+ol class
+ol dir
+ol id
+ol lang
+ol title
+ol xml:lang
+
+optgroup class
+optgroup dir
+optgroup disabled
+optgroup id
+optgroup lang
+optgroup multiple
+optgroup name
+optgroup size
+optgroup tabindex
+optgroup title
+optgroup xml:lang
+
+option class
+option dir
+option disabled
+option id
+option lang
+option multiple
+option size
+option tabindex
+option title
+option xml:lang
+
+p class
+p dir
+p id
+p lang
+p title
+p xml:lang
+
+param id
+param name
+param type
+param value
+param valuetype
+
+pre class
+pre dir
+pre id
+pre lang
+pre title
+pre xml:lang
+pre xml:space
+
+q cite
+q class
+q dir
+q id
+q lang
+q title
+q xml:lang
+
+samp class
+samp dir
+samp id
+samp lang
+samp title
+samp xml:lang
+
+select class
+select dir
+select disabled
+select id
+select lang
+select multiple
+select size
+select tabindex
+select title
+select xml:lang
+
+small class
+small dir
+small id
+small lang
+small title
+small xml:lang
+
+span class
+span dir
+span id
+span lang
+span title
+span xml:lang
+
+strong class
+strong dir
+strong id
+strong lang
+strong title
+strong xml:lang
+
+sub class
+sub dir
+sub id
+sub lang
+sub title
+sub xml:lang
+
+sup class
+sup dir
+sup id
+sup lang
+sup title
+sup xml:lang
+
+table border
+table cellpadding
+table cellspacing
+table class
+table dir
+table frame
+table id
+table lang
+table rules
+table summary
+table title
+table width
+table xml:lang
+
+tbody align
+tbody char
+tbody charoff
+tbody class
+tbody dir
+tbody id
+tbody lang
+tbody title
+tbody valign
+tbody xml:lang
+
+td abbr
+td axis
+td class
+td colspan
+td dir
+td headers
+td id
+td lang
+td rowspan
+td scope
+td title
+td xml:lang
+
+textarea accesskey
+textarea class
+textarea cols
+textarea dir
+textarea disabled
+textarea id
+textarea lang
+textarea name
+textarea readonly
+textarea rows
+textarea tabindex
+textarea title
+textarea xml:lang
+
+tfoot align
+tfoot char
+tfoot charoff
+tfoot class
+tfoot dir
+tfoot id
+tfoot lang
+tfoot title
+tfoot valign
+tfoot xml:lang
+
+th abbr
+th align
+th axis
+th char
+th charoff
+th class
+th colspan
+th dir
+th headers
+th id
+th lang
+th rowspan
+th scope
+th title
+th valign
+th xml:lang
+
+thead align
+thead char
+thead charoff
+thead class
+thead dir
+thead id
+thead lang
+thead title
+thead valign
+thead xml:lang
+
+***
+title
+
+tr align
+tr char
+tr charoff
+tr class
+tr dir
+tr id
+tr lang
+tr title
+tr valign
+tr xml:lang
+
+tt id
+tt class
+tt lang
+tt xml:lang
+tt dir
+tt title
+tt xml:space
+
+ul id
+ul class
+ul lang
+ul xml:lang
+ul dir
+ul title
+
+var class
+var dir
+var id
+var lang
+var title
+var xml:lang
+

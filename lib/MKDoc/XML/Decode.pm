@@ -12,6 +12,16 @@ package MKDoc::XML::Decode;
 use warnings;
 use strict;
 
+our %XML_Decode     = (
+    'amp'  => '&',
+    'lt'   => '<',
+    'gt'   => '>',
+    'quot' => '"',
+    'apos' => "'",
+);
+
+our $XML_Decode_Pattern = join ("|", keys %XML_Decode);
+
 
 ##
 # $class->process ($xml);
@@ -25,11 +35,7 @@ sub process
     
     my $class = shift;
     my $data = join '', @_;
-    $data =~ s/\&apos;/\'/g;
-    $data =~ s/\&quot;/\"/g;
-    $data =~ s/\&gt;/\>/g;
-    $data =~ s/\&lt;/\</g;
-    $data =~ s/\&amp;/\&/g;
+    $data =~ s/&($XML_Decode_Pattern);/$XML_Decode{$1}/go;
     return $data;
 }
 

@@ -10,6 +10,7 @@
 # -------------------------------------------------------------------------------------
 package MKDoc::XML::Stripper;
 use MKDoc::XML::Tokenizer;
+use File::Spec;
 use strict;
 use warnings;
 
@@ -22,7 +23,54 @@ use warnings;
 sub new
 {
     my $class = shift;
-    return bless { @_ }, $class;
+    my $self  = bless { @_ }, $class;
+    return $self;
+}
+
+
+sub load_def
+{
+    my $self = shift;
+    my $file = shift;
+    
+    $file =~ /\// and return $self->_load_def ($file);
+    $file =~ /\./ and return $self->_load_def ($file);
+    
+    $file .= '.txt';
+    for (@INC)
+    {
+	my $path = File::Spec->catfile ($_, qw /MKDoc XML Stripper/, $file);
+	-e $path and -f $path and return $self->_load_def ($path);
+    }
+    
+    warn "Cannot read-open $file. Reason: Doesn't seem to be anywhere in \@INC";
+}
+
+
+sub _load_def
+{
+    my $self = shift;
+    my $file = shift;
+    
+    open FP, "<$file" || do {
+	warn "Cannot read-open $file. Reason: $!";
+	return;
+    };
+
+    # clean $self 
+    for (keys %{$self}) { delete $self->{$_} }
+    while (<FP>) {
+	chomp();
+	s/\#.*$//;
+	s/^\s*//;
+	s/\s*$//;
+	next unless ($_ ne '');
+	
+	my @l = split /\s+/, $_;
+	$self->allow (@l);
+    }
+    
+    close FP;
 }
 
 
@@ -38,7 +86,8 @@ sub allow
 {
     my $self = shift;
     my $tag  = shift;
-    $self->{$tag} = { map { $_ => 1 } @_ };
+    $self->{$tag} ||= {};
+    for (@_) { $self->{$tag}->{$_} = 1 };
 }
 
 
@@ -183,6 +232,37 @@ and try to do something with it. Do not use it unless you know what you're doing
 
 Instantiates a new MKDoc::XML::Stripper object.
 
+
+=head2 $stripper->load_def ($def_name);
+
+Loads a definition located somewhere in @INC under MKDoc/XML/Stripper.
+
+Available definitions are:
+
+=over
+
+=item mkdoc16 - MKDoc 1.6. XHTML structural markup
+
+=back
+
+More will be added soon.
+
+You can also load your own definition file, for instance:
+
+  $stripper->load_def ('my_def.txt');
+
+Definitions are simple text files as follows:
+
+  # allow p with 'class' and id
+  p class
+  p id
+
+  # allow more stuff
+  td class
+  td id
+  td style  
+
+  # etc...
 
 =head2 $stripper->allow ($tag, @attributes)
 
