@@ -37,5 +37,6 @@ t/600_MKDoc_XML_Dumper_Freeze.t
 t/601_MKDoc_XML_Dumper_Thaw.t
 t/602_MKDoc_XML_Dumper_Round.t
 t/603_MKDoc_XML_Dumper_Compat.t
+t/604_MKDoc_XML_Dumper_Entities.t
 t/data/root.html
 t/data/sample.xml

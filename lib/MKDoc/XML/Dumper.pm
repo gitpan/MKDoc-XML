@@ -127,7 +127,11 @@ sub xml_to_perl_hash
 	my $key      = $item->{key};
 	if ($Compat)
 	{
-	    $ref->{$key} = $item->{_content}->[0] || '';
+	    $ref->{$key} = do {
+                my $stuff  = $item->{_content}->[0] || '';
+                my $decode = new MKDoc::XML::Decode ('xml');
+                $decode->process ($stuff);
+            }
 	}
 	else
 	{

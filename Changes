@@ -1,5 +1,8 @@
 Revision history for MKDoc::XML 
 
+0.68 Sat Jan 31 10:44:31 2004
+    - Fixed backwards compatibility decoding bug
+
 0.67 Mon Jan 26 13:52:43 2004
     - Fixed more backwards compatibility bugs 
 
