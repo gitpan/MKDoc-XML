@@ -197,7 +197,7 @@ sub is_tag_close
     $$self =~ /^<\// and
     $$self !~ /\/>$/ and do {
 	my %node      = ($$self =~ /((?:\w|:)+)=\"(.*?)\"/gs), ($$self =~ /((?:\w|:)+)=\'(.*?)\'/gs);
-	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]+)/;
+	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
 	$node{_open}  = 0;
 	$node{_close} = 1;
 	$node = \%node;

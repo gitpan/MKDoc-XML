@@ -9,6 +9,7 @@
 # This module is distributed under the same license as Perl itself.
 # -------------------------------------------------------------------------------------
 package MKDoc::XML::Stripper;
+use MKDoc::XML::Tokenizer;
 use strict;
 use warnings;
 

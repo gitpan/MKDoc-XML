@@ -69,7 +69,7 @@ sub process_data
     $xml =~ s/^(?:\s|\r|\n)*\</\</s;
     $xml =~ s/\>(?:\s|\r|\n)*$/\>/s;
     
-    my @res = map { bless \$_, 'MKDoc::XML::Token' } $xml =~ /$XML_SPE/go;
+    my @res = map { bless \$_, 'MKDoc::XML::Token' } $xml =~ /$XML_SPE/go;   
     return \@res;
 }
 

@@ -1,5 +1,9 @@
 Revision history for MKDoc::XML 
 
+0.3 Wed Sep 17 15:40:50 2003
+    - Fixed patrick's reported bug "XML::Stripper" not compiling
+    - Fixed patrick's reported bug "p tag not closing"
+
 0.2 Thu Sep 11 16:19:46 2003
     - Applied Bruno's documentation typo patches
     - MKDoc::XML::Encode initial release
