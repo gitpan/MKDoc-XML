@@ -65,6 +65,7 @@ EOF
 	'&lt;hello&gt;',
         { _expr => 'hello', _tag => 'a', href => 'http://www.hello.com/' },
        );
+
     like ($r, qr/<a/);
 }
 
@@ -96,6 +97,19 @@ EOF
     );
 }
 
+
+{
+    my $r = MKDoc::XML::Tagger->process_data (
+        'q &amp; a',
+        {
+            '_expr' => 'Q & A',
+            'href' => 'http://news.com/',
+            '_tag' => 'a',
+        }
+     );
+
+     is ($r, '<a href="http://news.com/">q &amp; a</a>');
+}
 
 1;
 

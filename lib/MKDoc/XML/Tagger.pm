@@ -74,8 +74,29 @@ sub _replace
     my $tokens = shift;
     my @expr   = sort { length ($b->{_expr}) <=> length ($a->{_expr}) } @_;
     
+    @expr = map {
+	my $hash = \%{$_};
+	for (keys %{$hash}) {
+	    $hash->{$_} =~ s/\&/\&amp;/g;
+	    $hash->{$_} =~ s/\</\&lt;/g;
+	    $hash->{$_} =~ s/\>/\&gt;/g;
+	    $hash->{$_} =~ s/\"/\&quot;/g;
+	};
+	$hash;
+    } @expr;
+    
     my $text; local $tags;
     ($text, $tags) = _segregate_markup_from_text ($tokens);
+    
+    # once we have segregated markup from the text, we can safely
+    # encode < and > and "...
+    $text =~ s/\</\&lt;/g;
+    $text =~ s/\>/\&gt;/g;
+    $text =~ s/\"/\&quot;/g;
+    
+    # but we don't want any &apos;
+    $text =~ s/\&apos;/\'/g;
+    
     
     while (my $attr = shift (@expr))
     {

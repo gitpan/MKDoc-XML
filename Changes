@@ -1,5 +1,8 @@
 Revision history for MKDoc::XML 
 
+0.67 Mon Jan 26 13:52:43 2004
+    - Fixed more backwards compatibility bugs 
+
 0.66 Fri Jan 23 16:03:03 2004
     - Fixed double hyperlinking issue with MKDoc::XML::Tagger
  
