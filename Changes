@@ -1,5 +1,8 @@
 Revision history for MKDoc::XML 
 
+0.74 Thu Dec 09 14:00:00 2004
+    - Fix for longstanding bug introduced in 0.66 that resulting in MKDoc::XML::Tagger producing invalid XML.
+
 0.73 Wed Oct 06 12:58:00 2004
     - removed defunct jhiver email address
     - Fixed some 'uninitialized value' problem

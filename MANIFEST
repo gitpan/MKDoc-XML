@@ -32,6 +32,7 @@ t/201_MKDoc_XML_TreeBuilder_Root.t
 t/300_MKDoc_XML_Tagger.t
 t/301_MKDoc_XML_Tagger_Preserve.t
 t/302_MKDoc_XML_Tagger_Spaces.t
+t/303_MKDoc_XML_Tagger_Nesting.t
 t/400_MKDoc_XML_Stripper.t
 t/401_MKDoc_XML_Stripper_p_not_closing.t
 t/402_MKDoc_XML_Stripper_def.t

@@ -108,11 +108,14 @@ sub _replace
         $text = _text_replace ($text, $expr, $tag, \%attr);
     }
     
+    while ($text =~ /\&\(\d+\)/)
+    {
     for (my $i = 0; $i < @{$tags}; $i++)
     {
         my $c   = $i + 1;
         my $tag = $tags->[$i];
         $text =~ s/\&\($c\)/$tag/g;
+    }
     }
     
     return $text;
