@@ -202,5 +202,27 @@ EOF
 }
 
 
+{
+    my $xml = <<EOF;
+<?xml version="1.0" encoding="UTF-8"?>
+<perl>
+  <hash id="id_144488596" bless="flo::editor::Photo">
+    <item key="alt">Xchange Learning Centre</item>
+    <item key="class">photo</item>
+    <item key="coverage">Northamptonshire, UK</item>
+    <item key="created_day">18</item>
+    <item key="created_month">03</item>
+    <item key="created_year">2002</item>
+    <item key="creator">David Matthews</item>
+    <item key="description">Photo taken outside the The Xchange Learning Centre, Kettering.</item>
+    <item key="image">8217988573/xchange-learning-centre.jpg</item>
+    <item key="param_name">_edit_block_32_photo</item>
+    <item key="rights">© Crown copyright 2003</item>
+  </hash>
+</perl>
+EOF
+
+    ok (ref MKDoc::XML::Dumper->xml2perl ($xml));
+}
 
 __END__

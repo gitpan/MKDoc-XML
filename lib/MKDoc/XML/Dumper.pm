@@ -24,11 +24,14 @@ sub xml2perl
 {
     my $class  = shift;
     my $xml    = shift;
-    my ($tree) = MKDoc::XML::TreeBuilder->process_data ($xml);
+    my (@tree) = MKDoc::XML::TreeBuilder->process_data ($xml);
+    while ( (@tree and not ref $tree[0] and $tree[0] =~ /^(\s|\n|\r)*$/) or
+            (@tree and ref $tree[0] and $tree[0]->{_tag} and $tree[0]->{_tag} eq '~pi') ) { shift (@tree) }
+
     local $BackRef = {};
     local $IndentLevel = 0;
     
-    return $class->xml_to_perl ($tree);
+    return $class->xml_to_perl ($tree[0]);
 }
 
 
@@ -37,7 +40,7 @@ sub xml_to_perl
 {
     my $class = shift;
     @_ = map { ref $_ ? $_ : () } @_;
-    
+   
     my @res = map {
 	$class->xml_to_perl_backwards_compat_perl_tag ($_) ||
 	$class->xml_to_perl_backref  ($_) ||
