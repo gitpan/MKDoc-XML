@@ -2,7 +2,7 @@ package MKDoc::XML;
 use strict;
 use warnings;
 
-our $VERSION = '0.72';
+our $VERSION = '0.73';
 
 
 1;
@@ -111,7 +111,7 @@ a perl structure.
 
 Copyright 2003 - MKDoc Holdings Ltd.
 
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
+Author: Jean-Michel Hiver
 
 This module is free software and is distributed under the same license as Perl
 itself. Use it at your own risk.
@@ -119,7 +119,7 @@ itself. Use it at your own risk.
 
 =head1 SEE ALSO
 
-  Petal: http://search.cpan.org/author/JHIVER/Petal/
+  Petal: http://search.cpan.org/dist/Petal/
   MKDoc: http://www.mkdoc.com/
 
 Help us open-source MKDoc. Join the mkdoc-modules mailing list:

@@ -1,7 +1,7 @@
 # -------------------------------------------------------------------------------------
 # MKDoc::XML::TreePrinter
 # -------------------------------------------------------------------------------------
-# Author : Jean-Michel Hiver <jhiver@mkdoc.com>.
+# Author : Jean-Michel Hiver.
 # Copyright : (c) MKDoc Holdings Ltd, 2003
 #
 # This module is the counterpart of MKDoc::XML::TreePrinter. It turns an XML
@@ -75,6 +75,8 @@ sub process
 sub _encode_quot
 {
     my $res = shift;
+    return '' unless (defined $res);
+
     $res =~ s/\"/\&quot\;/g;
     return $res;
 }
@@ -108,7 +110,7 @@ tree, and then get the result back as XML data.
 
 Copyright 2003 - MKDoc Holdings Ltd.
 
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
+Author: Jean-Michel Hiver
 
 This module is free software and is distributed under the same license as Perl
 itself. Use it at your own risk.

@@ -413,7 +413,7 @@ at L<MKDoc::XML::TreeBuilder>.
 
 Copyright 2003 - MKDoc Holdings Ltd.
 
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
+Author: Jean-Michel Hiver
 
 This module is free software and is distributed under the same license as Perl
 itself. Use it at your own risk.

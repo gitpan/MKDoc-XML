@@ -1,5 +1,9 @@
 Revision history for MKDoc::XML 
 
+0.73 Wed Oct 06 12:58:00 2004
+    - removed defunct jhiver email address
+    - Fixed some 'uninitialized value' problem
+
 0.72 Wed Jul 21 18:41:28 2004
     - Added MKDoc::XML::TreePrinter
 

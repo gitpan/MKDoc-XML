@@ -1,7 +1,7 @@
 # -------------------------------------------------------------------------------------
 # MKDoc::XML::Decode
 # -------------------------------------------------------------------------------------
-# Author : Jean-Michel Hiver <jhiver@mkdoc.com>.
+# Author : Jean-Michel Hiver
 # Copyright : (c) MKDoc Holdings Ltd, 2003
 #
 # This modules expands XML entities &amp; &gt; &lt; &quot; and &apos;.
@@ -145,7 +145,7 @@ Any entity which is not recognized will be returned as is but will trigger a war
 
 Copyright 2003 - MKDoc Holdings Ltd.
 
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
+Author: Jean-Michel Hiver
 
 This module is free software and is distributed under the same license as Perl
 itself. Use it at your own risk.

@@ -1,7 +1,7 @@
 # -------------------------------------------------------------------------------------
 # MKDoc::XML::Stripper
 # -------------------------------------------------------------------------------------
-# Author : Jean-Michel Hiver <jhiver@mkdoc.com>.
+# Author : Jean-Michel Hiver.
 # Copyright : (c) MKDoc Holdings Ltd, 2003
 #
 # This module removes user-defined markup from an existing XML file / variable.
@@ -326,7 +326,7 @@ For this same reason MKDoc::XML::Stripper does not support namespaces.
 
 Copyright 2003 - MKDoc Holdings Ltd.
 
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
+Author: Jean-Michel Hiver
 
 This module is free software and is distributed under the same license as Perl
 itself. Use it at your own risk.

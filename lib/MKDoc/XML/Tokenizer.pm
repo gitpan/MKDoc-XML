@@ -1,7 +1,7 @@
 # -------------------------------------------------------------------------------------
 # MKDoc::XML::Tokenizer
 # -------------------------------------------------------------------------------------
-# Author : Jean-Michel Hiver <jhiver@mkdoc.com>.
+# Author : Jean-Michel Hiver.
 # Copyright : (c) MKDoc Holdings Ltd, 2003
 #
 # This module turns an XML string into a list of tokens and returns this list.
@@ -199,7 +199,7 @@ at L<MKDoc::XML::TreeBuilder>.
 
 Copyright 2003 - MKDoc Holdings Ltd.
 
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
+Author: Jean-Michel Hiver
 
 This module is free software and is distributed under the same license as Perl
 itself. Use it at your own risk.

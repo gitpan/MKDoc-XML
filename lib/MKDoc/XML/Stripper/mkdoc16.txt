@@ -331,6 +331,7 @@ h1 id
 h1 lang
 h1 title
 h1 xml:lang
+h1 align
 
 
 # h2
@@ -342,7 +343,7 @@ h2 id
 h2 lang
 h2 title
 h2 xml:lang
-
+h2 align
 
 # h3
 # heading
@@ -353,7 +354,7 @@ h3 id
 h3 lang
 h3 title
 h3 xml:lang
-
+h3 align
 
 # h4
 # heading
@@ -364,7 +365,7 @@ h4 id
 h4 lang
 h4 title
 h4 xml:lang
-
+h4 align
 
 # h5
 # heading
@@ -375,7 +376,7 @@ h5 id
 h5 lang
 h5 title
 h5 xml:lang
-
+h5 align
 
 # h6
 # heading
@@ -386,7 +387,7 @@ h6 id
 h6 lang
 h6 title
 h6 xml:lang
-
+h6 align
 
 # head
 # document head
@@ -447,7 +448,7 @@ img title
 img usemap
 img width
 img xml:lang
-
+img border
 
 # input
 # form control
@@ -618,6 +619,7 @@ p id
 p lang
 p title
 p xml:lang
+p align
 
 
 # param
