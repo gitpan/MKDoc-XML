@@ -1,5 +1,9 @@
 Revision history for MKDoc::XML 
 
+0.71 Mon Jun 21 13:38:38 2004
+    - Fixed MKDoc::XML::Tagger bug
+    - Added t/302_MKDoc_XML_Tagger_Spaces.t
+ 
 0.70 Mon Apr  5 14:31:31 2004
     - Attribute parsing fix not commited somehow
 

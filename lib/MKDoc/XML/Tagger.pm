@@ -91,6 +91,7 @@ sub _replace
     
     # once we have segregated markup from the text, we can safely
     # encode < and > and "...
+    # $text =~ s/\&/\&amp;/g; # seems to be already encoded... where do we encode this stuff !?!
     $text =~ s/\</\&lt;/g;
     $text =~ s/\>/\&gt;/g;
     $text =~ s/\"/\&quot;/g;
@@ -117,46 +118,6 @@ sub _replace
     return $text;
 }
 
-=cut
-
-sub _filter_out
-{
-    my $text  = uc (shift);
-die $text;
-    my %match = ();
-    my %miss  = ();
-    my @res   = ();
-
-  LOOP:
-    for my $attr (@_)
-    {
-        my $expr = $attr->{_expr} || next;
-        $expr = uc ($expr);
-
-        my @expr = split /(?:\s|\r|\n)+/, $expr;
-        for (@expr)
-        {
-            $miss{$_}  && next LOOP; 
-            $match{$_} && next; 
-            if (index ($text, $_) == -1)
-            {
-                $miss{$_} = 1;
-                next LOOP; 
-            }
-            else
-            {
-                $match{$_} = 1;
-                next; 
-            }
-        }
-        
-        push @res, $attr;
-    }
-    
-    return @res;
-}
-
-=cut
 
 ##
 # _text_replace ($text, $expr, $tag, $attr);
@@ -173,10 +134,14 @@ sub _text_replace
     my $re    = _expression_to_regex ($expr);
     my $tag1  = _tag_open ($tag, $attr);
     my $tag2  = _tag_close ($tag, $attr);
-    
-    my %expr  = map { $_ => 1 } " $text " =~
+
+    # let's treat beginning and end of string as spaces,
+    # it makes the regular expressions much easier.
+    $text = " $text ";
+
+    my %expr  = map { $_ => 1 } $text =~
     /(?<=\p{IsSpace}|\p{IsPunct}|\&)($re)(?=\p{IsSpace}|\p{IsPunct}|\&)/gi;
-    
+
     foreach (keys %expr)
     {
         my $to_replace  = quotemeta ($_);
@@ -188,9 +153,13 @@ sub _text_replace
 	# JM - 2004-01-23
 	push @{$tags}, $replacement;
 	my $rep = '&(' . @{$tags} . ')';
-        $text =~ s/$to_replace/$rep/g;
+        $text =~ s/(?<=\p{IsSpace}|\p{IsPunct}|\&)$to_replace(?=\p{IsSpace}|\p{IsPunct}|\&)/$rep/g;
     }
-    
+   
+    # remove the first and last space which we previously inserted for
+    # ease-of-regex purposes.
+    $text =~ s/^ //;
+    $text =~ s/ $//; 
     return $text;
 }
 

@@ -366,22 +366,24 @@ sub text
     return ($$self !~ /^</) ? $$self : undef;
 }
 
+our $S = "[ \\n\\t\\r]+";
+our $NameStrt = "[A-Za-z_:]|[^\\x00-\\x7F]";
+our $NameChar = "[A-Za-z0-9_:.-]|[^\\x00-\\x7F]";
+our $Name = "(?:$NameStrt)(?:$NameChar)*";
+our $EndTagCE = "$Name(?:$S)?>?";
+our $AttValSE = "\"[^<\"]*\"|'[^<']*'";
+our $ElemTagCE = "$Name((?:$S$Name(?:$S)?=(?:$S)?(?:$AttValSE))*)(?:$S)?/?>?";
+our $ElemTagCE_Mod = "$S($Name)(?:$S)?=(?:$S)?($AttValSE)";
+
+our $RE_1 = qr /$ElemTagCE/;
+our $RE_2 = qr /$ElemTagCE_Mod/;
+
 
 sub _extract_attributes
 {
     my $tag = shift;
-    
-    my $S = "[ \\n\\t\\r]+";
-    my $NameStrt = "[A-Za-z_:]|[^\\x00-\\x7F]";
-    my $NameChar = "[A-Za-z0-9_:.-]|[^\\x00-\\x7F]";
-    my $Name = "(?:$NameStrt)(?:$NameChar)*";
-    my $EndTagCE = "$Name(?:$S)?>?";
-    my $AttValSE = "\"[^<\"]*\"|'[^<']*'";
-    my $ElemTagCE = "$Name((?:$S$Name(?:$S)?=(?:$S)?(?:$AttValSE))*)(?:$S)?/?>?";
-    
-    my ($tags) = $tag =~ /$ElemTagCE/go;
-    my $ElemTagCE_Mod = "$S($Name)(?:$S)?=(?:$S)?($AttValSE)";
-    my %attr = $tag =~ /$ElemTagCE_Mod/go;
+    my ($tags) = $tag =~ /$RE_1/g;
+    my %attr = $tag =~ /$RE_2/g;
     foreach my $key (keys %attr)
     {
         my $val = $attr{$key};
@@ -390,7 +392,7 @@ sub _extract_attributes
         $attr{$key} = $val;
     }
     
-    return %attr;
+    %attr;
 }
 
 

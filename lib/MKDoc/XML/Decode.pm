@@ -85,7 +85,7 @@ sub entity_to_char
 sub process
 {
     (@_ == 2) or warn "MKDoc::XML::Encode::process() should be called with two arguments";
-    
+
     my $self = shift;
     my $data = join '', map { defined $_ ? $_ : () } @_;
     $data    =~ s/&(#?[0-9A-Za-z]+);/$self->entity_to_char ($1)/eg;

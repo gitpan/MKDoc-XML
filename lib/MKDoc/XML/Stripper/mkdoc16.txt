@@ -432,6 +432,7 @@ i xml:lang
 # img
 # Embedded image
 
+img align
 img alt
 img class
 img dir
