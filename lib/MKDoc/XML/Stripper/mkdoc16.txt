@@ -253,6 +253,7 @@ dfn xml:lang
 # div
 # generic language/style container
 
+div align
 div class
 div dir
 div id

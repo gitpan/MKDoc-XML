@@ -1,5 +1,8 @@
 Revision history for MKDoc::XML 
 
+0.72 Wed Jul 21 18:41:28 2004
+    - Added MKDoc::XML::TreePrinter
+
 0.71 Mon Jun 21 13:38:38 2004
     - Fixed MKDoc::XML::Tagger bug
     - Added t/302_MKDoc_XML_Tagger_Spaces.t
