@@ -9,6 +9,9 @@ lib/MKDoc/XML/Dumper.pm
 lib/MKDoc/XML/Encode.pm
 lib/MKDoc/XML/Stripper.pm
 lib/MKDoc/XML/Stripper/mkdoc16.txt
+lib/MKDoc/XML/Stripper/xhtml10frameset.txt
+lib/MKDoc/XML/Stripper/xhtml10strict.txt
+lib/MKDoc/XML/Stripper/xhtml10transitional.txt
 lib/MKDoc/XML/Tagger.pm
 lib/MKDoc/XML/Token.pm
 lib/MKDoc/XML/Tokenizer.pm

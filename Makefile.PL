@@ -4,7 +4,10 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'MKDoc::XML',
     'VERSION_FROM'      => 'lib/MKDoc/XML.pm', # finds $VERSION
-    'PREREQ_PM'		=> {},
+    'PREREQ_PM'		=> {
+        'Test::More'    => '0.47',
+        'Scalar::Util'  => '1.07',
+    },
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM => 'lib/MKDoc/XML.pm', # retrieve abstract from module
        AUTHOR     => 'Jean-Michel Hiver <jhiver@mkdoc.com>') : ()),

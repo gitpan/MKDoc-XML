@@ -241,11 +241,15 @@ Available definitions are:
 
 =over
 
+=item xhtml10frameset
+
+=item xhtml10strict
+
+=item xhtml10transitional
+
 =item mkdoc16 - MKDoc 1.6. XHTML structural markup
 
 =back
-
-More will be added soon.
 
 You can also load your own definition file, for instance:
 

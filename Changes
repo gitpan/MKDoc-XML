@@ -1,5 +1,11 @@
 Revision history for MKDoc::XML 
 
+0.52 Thu Sep 25 14:19:49 2003
+    - Fixed a bug in MKDoc::XML::Tagger which would happen with Perl 5.6.1
+    - Added MKDoc::XML::Stripper XHTML specs contributed by Patrick
+    - Amended MKDoc::XML::Stripper POD accordingly
+    - Fixed missing dependencies
+
 0.51 Fri Sep 19 16:48:10 2003
     - Changed lib/MKDoc/XML.pm and Makefile.PL so that it can be picked
       up by Petal's Makefile.PL

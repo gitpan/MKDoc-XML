@@ -16,6 +16,7 @@ package MKDoc::XML::Tagger;
 use MKDoc::XML::Tokenizer;
 use strict;
 use warnings;
+use utf8;
 
 
 our $Ignorable_RE = qr /(?:\r|\n|\s|(?:\&\(\d+\)))*/;
