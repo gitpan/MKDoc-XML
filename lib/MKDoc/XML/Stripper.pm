@@ -144,7 +144,8 @@ sub strip
 {
     my $self  = shift;
     my $token = shift;
-    my $node  = $token->is_tag() || return $token;
+    my $node  = $token->tag();
+    defined $node || return $token;
     
     my $tag = $node->{_tag};
     return unless ( $self->{$tag} );

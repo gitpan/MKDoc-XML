@@ -59,12 +59,14 @@ sub _process_recurse
         my $token = shift @{$tokens};
 	my $node  = undef;
 	
-	$node = $token->is_leaf() and do {
+	$node = $token->leaf();
+	defined $node and do {
 	    push @result, $node;
 	    next;
 	};
 	
-	$node = $token->is_tag_open() and do {
+	$node = $token->tag_open();
+	defined $node and do {
 	    my $descendants   = _descendant_tokens ($token, $tokens);
 	    $node->{_content} = _process_recurse ($descendants);
 	    push @result, $node;
@@ -97,19 +99,23 @@ sub _descendant_tokens
     while (@{$tokens})
     {
 	my $next_token = shift (@{$tokens});
+	my $node       = undef;
 	
-	$next_token->is_leaf() and do {
+	$node = $next_token->leaf();
+	defined $node and do {
 	    push @res, $next_token;
 	    next;
 	};
 	
-	$next_token->is_tag_open() and do {
+	$node = $next_token->tag_open();
+	defined $node and do {
 	    $balance++;
 	    push @res, $next_token;
 	    next;
 	};
 	
-	$next_token->is_tag_close() and do {
+	$node = $next_token->tag_close();
+	defined $node and do {
 	    $balance--;
 	    last if ($balance == 0);
 	    push @res, $next_token;

@@ -110,16 +110,16 @@ MKDoc::XML::Tokenizer - Tokenize XML the REX way
   my $tokens = MKDoc::XML::Tokenizer->process_data ($some_xml);
   foreach my $token (@{$tokens})
   {
-      print "'" . $token->as_string() . "' is text\n" if (defined $token->is_text());
-      print "'" . $token->as_string() . "' is a self closing tag\n" if ($token->is_tag_self_close());
-      print "'" . $token->as_string() . "' is an opening tag\n" if ($token->is_tag_open());
-      print "'" . $token->as_string() . "' is a closing tag\n" if ($token->is_tag_close());
-      print "'" . $token->as_string() . "' is a processing instruction\n" if ($token->is_pi());
-      print "'" . $token->as_string() . "' is a declaration\n" if ($token->is_declaration());
-      print "'" . $token->as_string() . "' is a comment\n" if ($token->is_comment());
-      print "'" . $token->as_string() . "' is a tag\n" if ($token->is_tag());
-      print "'" . $token->as_string() . "' is a pseudo-tag (NOT text and NOT tag)\n" if ($token->is_pseudotag());
-      print "'" . $token->as_string() . "' is a leaf token (NOT opening tag)\n" if ($token->is_leaf());
+      print "'" . $token->as_string() . "' is text\n" if (defined $token->text());
+      print "'" . $token->as_string() . "' is a self closing tag\n" if (defined $token->tag_self_close());
+      print "'" . $token->as_string() . "' is an opening tag\n" if (defined $token->tag_open());
+      print "'" . $token->as_string() . "' is a closing tag\n" if (defined $token->tag_close());
+      print "'" . $token->as_string() . "' is a processing instruction\n" if (defined $token->pi());
+      print "'" . $token->as_string() . "' is a declaration\n" if (defined $token->declaration());
+      print "'" . $token->as_string() . "' is a comment\n" if (defined $token->comment());
+      print "'" . $token->as_string() . "' is a tag\n" if (defined $token->tag());
+      print "'" . $token->as_string() . "' is a pseudo-tag (NOT text and NOT tag)\n" if (defined $token->pseudotag());
+      print "'" . $token->as_string() . "' is a leaf token (NOT opening tag)\n" if (defined $token->leaf());
   }
 
 

@@ -9,7 +9,7 @@ sub testit ($)
 {
     my $struct = shift;
     my $xml    = MKDoc::XML::Dumper->perl2xml ($struct);
-    is_deeply (MKDoc::XML::Dumper->xml2perl ($xml), $struct);    
+    is_deeply (MKDoc::XML::Dumper->xml2perl ($xml), $struct);
 }
 
 

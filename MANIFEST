@@ -22,6 +22,7 @@ t/002_MKDoc_XML_Token_tag_self_close.t
 t/100_MKDoc_XML_Tokenizer.t
 t/101_MKDoc_XML_Tokenizer_Comment.t
 t/200_MKDoc_XML_TreeBuilder.t
+t/201_MKDoc_XML_TreeBuilder_Root.t
 t/300_MKDoc_XML_Tagger.t
 t/400_MKDoc_XML_Stripper.t
 t/401_MKDoc_XML_Stripper_p_not_closing.t
@@ -32,4 +33,5 @@ t/502_MKDoc_XML_Encode.t
 t/600_MKDoc_XML_Dumper_Freeze.t
 t/601_MKDoc_XML_Dumper_Thaw.t
 t/602_MKDoc_XML_Dumper_Round.t
+t/data/root.html
 t/data/sample.xml

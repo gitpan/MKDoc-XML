@@ -7,7 +7,7 @@ use MKDoc::XML::Token;
 
 my $data  = qq |<a petal:replace="string:REPLACE" />|;
 my $token = new MKDoc::XML::Token ($data);
-my $node  = $token->is_tag_self_close();
+my $node  = $token->tag_self_close();
 is ($node->{_tag}, 'a');
 ok (defined $node->{'petal:replace'});
 

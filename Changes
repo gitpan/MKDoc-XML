@@ -1,5 +1,9 @@
 Revision history for MKDoc::XML 
 
+0.53 Tue Sep 30 10:49:06 2003
+    - Fixed a structural bug in MKDoc::XML::Token
+    - Renamed all is_XXX methods to XXX
+
 0.52 Thu Sep 25 14:19:49 2003
     - Fixed a bug in MKDoc::XML::Tagger which would happen with Perl 5.6.1
     - Added MKDoc::XML::Stripper XHTML specs contributed by Patrick
