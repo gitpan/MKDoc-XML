@@ -5,8 +5,22 @@ use strict;
 use warnings;
 use MKDoc::XML::Tokenizer;
 
+{
+    my $data = <<EOF;
+    <input
+      value="test"
+      onfocus="if(t.value='';"
+    />
+EOF
+
+    my $tokens = MKDoc::XML::Tokenizer->process_data ($data);
+    like ($tokens->[0]->as_string(), qr/value\=\"test\"/);
+}
+
+
 my $file = (-e 't/data/sample.xml') ? 't/data/sample.xml' : 'data/sample.xml';
 my $tokens = MKDoc::XML::Tokenizer->process_file ($file);
+
 
 like ($tokens->[0]->as_string(), qr/<!-- warning, this XML is entirely/);
 like ($tokens->[1]->as_string(), qr/^\s+$/s);

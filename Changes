@@ -1,7 +1,11 @@
 Revision history for MKDoc::XML 
 
-0.69 Fri Feb  6 16:32:09 2004
+0.70 Mon Apr  5 14:31:31 2004
+    - Attribute parsing fix not commited somehow
+
+0.69 Thu Mar 18 17:25:55 2004
     - Added experimental MKDoc::XML::Tagger::Preserve module
+    - Fixed broken attribute parsing in MKDoc::XML::Token
 
 0.68 Sat Jan 31 10:44:31 2004
     - Fixed backwards compatibility decoding bug

@@ -268,8 +268,7 @@ sub tag_open
     $$self !~ /\/>$/ and
     $$self !~ /^<\?/ and    
     $$self =~ /^</   and do {
-	my %node      = ($$self =~ /((?:\w|:|-)+)\s*=\s*\"(.*?)\"/gs,
-	                 $$self =~ /((?:\w|:|-)+)\s*=\s*\'(.*?)\'/gs);
+	my %node      = _extract_attributes ($$self);
 	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
 	$node{_open}  = 1;
 	$node{_close} = 0;
@@ -337,10 +336,10 @@ sub tag_self_close
     $$self !~ /^<\!/ and
     $$self !~ /^<\// and
     $$self =~ /\/>$/ and
+    # ((?:\w|:|-)+)\s*=\s*\"(.*?)\"/gs;
     $$self =~ /^</   and do {
-	my %node      = ($$self =~ /((?:\w|:|-)+)\s*=\s*\"(.*?)\"/gs,
-	                 $$self =~ /((?:\w|:|-)+)\s*=\s*\'(.*?)\'/gs);
-	($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
+	my %node      = _extract_attributes ($$self);
+        ($node{_tag}) = $$self =~ /.*?([A-Za-z0-9][A-Za-z0-9_:-]*)/;
 	$node{_open}  = 1;
 	$node{_close} = 1;
 	$node = \%node;
@@ -365,6 +364,33 @@ sub text
 {
     my $self = shift;
     return ($$self !~ /^</) ? $$self : undef;
+}
+
+
+sub _extract_attributes
+{
+    my $tag = shift;
+    
+    my $S = "[ \\n\\t\\r]+";
+    my $NameStrt = "[A-Za-z_:]|[^\\x00-\\x7F]";
+    my $NameChar = "[A-Za-z0-9_:.-]|[^\\x00-\\x7F]";
+    my $Name = "(?:$NameStrt)(?:$NameChar)*";
+    my $EndTagCE = "$Name(?:$S)?>?";
+    my $AttValSE = "\"[^<\"]*\"|'[^<']*'";
+    my $ElemTagCE = "$Name((?:$S$Name(?:$S)?=(?:$S)?(?:$AttValSE))*)(?:$S)?/?>?";
+    
+    my ($tags) = $tag =~ /$ElemTagCE/go;
+    my $ElemTagCE_Mod = "$S($Name)(?:$S)?=(?:$S)?($AttValSE)";
+    my %attr = $tag =~ /$ElemTagCE_Mod/go;
+    foreach my $key (keys %attr)
+    {
+        my $val = $attr{$key};
+        $val    =~ s/^(\"|\')//;
+        $val    =~ s/(\"|\')$//;
+        $attr{$key} = $val;
+    }
+    
+    return %attr;
 }
 
 

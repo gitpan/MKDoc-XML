@@ -149,6 +149,24 @@ my $text           = new MKDoc::XML::Token ('this is some text');
     is ($node->{_tag}, 'p');
 }
 
+
+{
+    my $data = <<EOF;
+    <input
+      value="test"
+      onfocus="if(t.value='';"
+    />
+EOF
+
+    $data =~ s/^\s+//;
+    $data =~ s/\s+$//;
+
+    my $tag = new MKDoc::XML::Token ($data);
+    $tag = $tag->leaf();
+    is ($tag->{onfocus}, "if(t.value='';");
+    is ($tag->{value}, "test");
+}
+
 1;
 
 

@@ -98,7 +98,7 @@ sub _replace
     # but we don't want any &apos;
     $text =~ s/\&apos;/\'/g;
     
-    @expr = _filter_out ($text, @expr);
+    # @expr = _filter_out ($text, @expr);
     while (my $attr = shift (@expr))
     {
 	my %attr = %{$attr};
@@ -117,10 +117,12 @@ sub _replace
     return $text;
 }
 
+=cut
 
 sub _filter_out
 {
     my $text  = uc (shift);
+die $text;
     my %match = ();
     my %miss  = ();
     my @res   = ();
@@ -154,6 +156,7 @@ sub _filter_out
     return @res;
 }
 
+=cut
 
 ##
 # _text_replace ($text, $expr, $tag, $attr);
