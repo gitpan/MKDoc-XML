@@ -1,5 +1,10 @@
 Revision history for MKDoc::XML 
 
+0.75 Thu Mar 10 15:12:00 2005
+    - Added tests for tagger bugs when matching numbers and double escaping attribute contents
+    - bugfix for double-encoding attribute-contents bug
+    - fix for invalid XML produced when tagging text matching numeric strings
+
 0.74 Thu Dec 09 14:00:00 2004
     - Fix for longstanding bug introduced in 0.66 that resulting in MKDoc::XML::Tagger producing invalid XML.
 

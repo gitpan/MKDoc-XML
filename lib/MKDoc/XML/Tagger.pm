@@ -157,6 +157,9 @@ sub _text_replace
 	push @{$tags}, $replacement;
 	my $rep = '&(' . @{$tags} . ')';
         $text =~ s/(?<=\p{IsSpace}|\p{IsPunct}|\&)$to_replace(?=\p{IsSpace}|\p{IsPunct}|\&)/$rep/g;
+        # matching placeholders fix Bruno 2005-03-10
+        my $rep_quoted = quotemeta ($rep);
+        $text =~ s/&\($rep_quoted\)/&($to_replace)/g;
     }
    
     # remove the first and last space which we previously inserted for
@@ -236,10 +239,6 @@ sub _tag_open
 
     my $attr_str = join ' ', map { $_ . '=' . do {
         my $val = $attr->{$_};
-        $val =~ s/\&/&amp;/g;
-        $val =~ s/\</&lt;/g;
-        $val =~ s/\>/&gt;/g;
-        $val =~ s/\"/&quot;/g;
         "\"$val\"";
     } } keys %{$attr};
 
