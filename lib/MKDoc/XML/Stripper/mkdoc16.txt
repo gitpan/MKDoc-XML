@@ -445,6 +445,7 @@ img title
 img usemap
 img width
 img xml:lang
+img border
 
 
 # input

@@ -1,5 +1,8 @@
 Revision history for MKDoc::XML 
 
+0.69 Fri Feb  6 16:32:09 2004
+    - Added experimental MKDoc::XML::Tagger::Preserve module
+
 0.68 Sat Jan 31 10:44:31 2004
     - Fixed backwards compatibility decoding bug
 

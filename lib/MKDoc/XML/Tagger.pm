@@ -21,6 +21,7 @@ use utf8;
 our $tags = [];
 our $Ignorable_RE = qr /(?:\r|\n|\s|(?:\&\(\d+\)))*/;
 
+our @DONT_TAG = qw/a/;
 
 ##
 # $class->process_data ($xml, @expressions);
@@ -97,7 +98,7 @@ sub _replace
     # but we don't want any &apos;
     $text =~ s/\&apos;/\'/g;
     
-    
+    @expr = _filter_out ($text, @expr);
     while (my $attr = shift (@expr))
     {
 	my %attr = %{$attr};
@@ -117,6 +118,43 @@ sub _replace
 }
 
 
+sub _filter_out
+{
+    my $text  = uc (shift);
+    my %match = ();
+    my %miss  = ();
+    my @res   = ();
+
+  LOOP:
+    for my $attr (@_)
+    {
+        my $expr = $attr->{_expr} || next;
+        $expr = uc ($expr);
+
+        my @expr = split /(?:\s|\r|\n)+/, $expr;
+        for (@expr)
+        {
+            $miss{$_}  && next LOOP; 
+            $match{$_} && next; 
+            if (index ($text, $_) == -1)
+            {
+                $miss{$_} = 1;
+                next LOOP; 
+            }
+            else
+            {
+                $match{$_} = 1;
+                next; 
+            }
+        }
+        
+        push @res, $attr;
+    }
+    
+    return @res;
+}
+
+
 ##
 # _text_replace ($text, $expr, $tag, $attr);
 # ------------------------------------------
@@ -129,7 +167,7 @@ sub _text_replace
     my $tag   = shift;
     my $attr  = shift;
     
-    my $re    = _expression_to_regex ($expr);    
+    my $re    = _expression_to_regex ($expr);
     my $tag1  = _tag_open ($tag, $attr);
     my $tag2  = _tag_close ($tag, $attr);
     
@@ -147,7 +185,6 @@ sub _text_replace
 	# JM - 2004-01-23
 	push @{$tags}, $replacement;
 	my $rep = '&(' . @{$tags} . ')';
-	
         $text =~ s/$to_replace/$rep/g;
     }
     

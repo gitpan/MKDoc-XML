@@ -2,7 +2,7 @@ package MKDoc::XML;
 use strict;
 use warnings;
 
-our $VERSION = '0.68';
+our $VERSION = '0.69';
 
 
 1;

@@ -15,6 +15,7 @@ lib/MKDoc/XML/Stripper/xhtml10frameset.txt
 lib/MKDoc/XML/Stripper/xhtml10strict.txt
 lib/MKDoc/XML/Stripper/xhtml10transitional.txt
 lib/MKDoc/XML/Tagger.pm
+lib/MKDoc/XML/Tagger/Preserve.pm
 lib/MKDoc/XML/Token.pm
 lib/MKDoc/XML/Tokenizer.pm
 lib/MKDoc/XML/TreeBuilder.pm
@@ -27,6 +28,7 @@ t/102_MKDoc_XML_Tokenizer_Attributes.t
 t/200_MKDoc_XML_TreeBuilder.t
 t/201_MKDoc_XML_TreeBuilder_Root.t
 t/300_MKDoc_XML_Tagger.t
+t/301_MKDoc_XML_Tagger_Preserve.t
 t/400_MKDoc_XML_Stripper.t
 t/401_MKDoc_XML_Stripper_p_not_closing.t
 t/402_MKDoc_XML_Stripper_def.t
