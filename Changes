@@ -1,0 +1,8 @@
+Revision history for MKDoc::XML 
+
+0.1 Thu Sep  4 12:02:03 2003
+    - MKDoc::XML::Token initial release
+    - MKDoc::XML::Tokenizer initial release
+    - MKDoc::XML::TreeBuilder initial release
+    - MKDoc::XML::Stripper initial release
+    - MKDoc::XML::Tagger initial release

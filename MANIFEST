@@ -1,0 +1,16 @@
+Changes
+MANIFEST			This list of files
+Makefile.PL
+README
+lib/MKDoc/XML.pm
+lib/MKDoc/XML/Stripper.pm
+lib/MKDoc/XML/Tagger.pm
+lib/MKDoc/XML/Token.pm
+lib/MKDoc/XML/Tokenizer.pm
+lib/MKDoc/XML/TreeBuilder.pm
+t/000_MKDoc_XML_Token.t
+t/100_MKDoc_XML_Tokenizer.t
+t/200_MKDoc_XML_TreeBuilder.t
+t/300_MKDoc_XML_Tagger.t
+t/400_MKDoc_XML_Stripper.t
+t/data/sample.xml
