@@ -12,7 +12,6 @@ is ($decode->process ('Hello, &amp;'), 'Hello, &');
 is ($decode->process ('Hello, &quot;'), 'Hello, "');
 is ($decode->process ('Hello, &apos;'), 'Hello, \'');
 
-
 1;
 
 

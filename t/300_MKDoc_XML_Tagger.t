@@ -6,7 +6,6 @@ use warnings;
 use MKDoc::XML::Tagger;
 use MKDoc::XML::Tokenizer;
 
-
 # _tag_close and _tag_open functions
 {
     my $tag = MKDoc::XML::Tagger::_tag_close ('strong');
@@ -87,6 +86,14 @@ EOF
         { _expr => 'hello', _tag => 'a', href => 'http://www.hello.com/' },
        );
     like ($r, qr/<a/);
+}
+
+{
+    my $data = qq |<span><p>&lt;p&gt;this is a test, hello world, this is a test&lt;/p&gt;</p></span>|;
+    my $r = MKDoc::XML::Tagger->process_data (
+        $data,
+        { _expr => 'Hello World', _tag => 'a', href => 'cw', alt => 'foo'  }
+    );
 }
 
 

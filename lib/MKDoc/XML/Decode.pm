@@ -63,6 +63,7 @@ sub new
 	    warn "Module $_ not found - Ignoring";
 	    ();
 	} } @_ ], $class;
+
     return $self;
 }
 
@@ -81,20 +82,13 @@ sub entity_to_char
 }
 
 
-##
-# $class->process ($xml);
-# -----------------------
-# Expands the entities &apos; &quot; &gt; &lt; and &amp;
-# into their ascii equivalents.
-##
 sub process
 {
     (@_ == 2) or warn "MKDoc::XML::Encode::process() should be called with two arguments";
     
     my $self = shift;
-    my $data = join '', @_;
+    my $data = join '', map { defined $_ ? $_ : () } @_;
     $data    =~ s/&(#?[0-9A-Za-z]+);/$self->entity_to_char ($1)/eg;
-    
     return $data;
 }
 

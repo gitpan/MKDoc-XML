@@ -1,5 +1,11 @@
 Revision history for MKDoc::XML 
 
+0.64 Fri Jan 23 12:28:27 2004
+    - Fixed "Use of uninitialized value in join or string" warnings in MKDoc::XML::Decode
+
+0.63
+    - Added more comprehensive XHTML entities decoding 
+
 0.62 Thu Nov  6 11:54:49 2003
     - Added current MKDoc backwards compatibility
 

@@ -310,6 +310,7 @@ fieldset xml:lang
 
 form accept
 form accept-charset
+form action
 form class
 form dir
 form enctype
