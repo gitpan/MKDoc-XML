@@ -1,5 +1,8 @@
 Revision history for MKDoc::XML 
 
+0.62 Thu Nov  6 11:54:49 2003
+    - Added current MKDoc backwards compatibility
+
 0.61 Thu Oct 16 13:44:40 2003
     - Fixed not dying on <p foo=bar>
     - <p foobar>

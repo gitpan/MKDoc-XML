@@ -18,7 +18,7 @@ use warnings;
 use strict;
 
 use vars qw /$IndentLevel $BackRef/;
-
+our $Compat = 0;
 
 sub xml2perl
 {
@@ -37,8 +37,9 @@ sub xml_to_perl
 {
     my $class = shift;
     @_ = map { ref $_ ? $_ : () } @_;
-
+    
     my @res = map {
+	$class->xml_to_perl_backwards_compat_perl_tag ($_) ||
 	$class->xml_to_perl_backref  ($_) ||
 	$class->xml_to_perl_ref      ($_) ||
 	$class->xml_to_perl_scalar   ($_) ||
@@ -47,8 +48,19 @@ sub xml_to_perl
 	$class->xml_to_perl_litteral ($_)
     } @_;
     
-    return shift (@res) if (@res == 1);
+    return pop (@res) if (@res == 1);
     return @res;
+}
+
+
+sub xml_to_perl_backwards_compat_perl_tag
+{
+    my ($class, $tree) = @_;
+    ref $tree                  || return ();
+    $tree->{_tag} eq 'perl'    || return ();
+    
+    local ($Compat) = 1;
+    return $class->xml_to_perl (@{$tree->{_content}});
 }
 
 
@@ -110,8 +122,15 @@ sub xml_to_perl_hash
     foreach my $item (@items)
     {
 	my $key      = $item->{key};
-	my ($val)    = $class->xml_to_perl ( @{$item->{_content}} );
-	$ref->{$key} = $val;
+	if ($Compat)
+	{
+	    $ref->{$key} = $item->{_content}->[0] || '';
+	}
+	else
+	{
+	    my ($val)    = $class->xml_to_perl ( @{$item->{_content}} );
+	    $ref->{$key} = $val;
+	}
     }
     
     return $ref;
