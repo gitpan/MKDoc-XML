@@ -3,8 +3,11 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'MKDoc::XML',
-    'VERSION'	        => '0.5',
+    'VERSION_FROM'      => 'lib/MKDoc/XML.pm', # finds $VERSION
     'PREREQ_PM'		=> {},
+    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
+      (ABSTRACT_FROM => 'lib/MKDoc/XML.pm', # retrieve abstract from module
+       AUTHOR     => 'Jean-Michel Hiver <jhiver@mkdoc.com>') : ()),
 );
 
 

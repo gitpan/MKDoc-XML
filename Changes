@@ -1,5 +1,9 @@
 Revision history for MKDoc::XML 
 
+0.51 Fri Sep 19 16:48:10 2003
+    - Changed lib/MKDoc/XML.pm and Makefile.PL so that it can be picked
+      up by Petal's Makefile.PL
+
 0.5 Fri Sep 19 16:37:12 2003
     - Improved MKDoc::XML::Encode and MKDoc::XML::Decode
     - Added definition loading to MKDoc::XML::Stripper

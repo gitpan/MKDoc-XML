@@ -1,3 +1,15 @@
+package MKDoc::XML;
+use strict;
+use warnings;
+
+our $VERSION = '0.51';
+
+
+1;
+
+
+__END__
+
 =head1 NAME
 
 MKDoc::XML - The MKDoc XML Toolkit
