@@ -3,6 +3,10 @@ MANIFEST			This list of files
 Makefile.PL
 README
 lib/MKDoc/XML.pm
+lib/MKDoc/XML/Decode.pm
+lib/MKDoc/XML/DecodeHO.pm
+lib/MKDoc/XML/Dumper.pm
+lib/MKDoc/XML/Encode.pm
 lib/MKDoc/XML/Stripper.pm
 lib/MKDoc/XML/Tagger.pm
 lib/MKDoc/XML/Token.pm
@@ -13,4 +17,10 @@ t/100_MKDoc_XML_Tokenizer.t
 t/200_MKDoc_XML_TreeBuilder.t
 t/300_MKDoc_XML_Tagger.t
 t/400_MKDoc_XML_Stripper.t
+t/500_MKDoc_XML_Decode.t
+t/501_MKDoc_XML_DecodeHO.t
+t/502_MKDoc_XML_Encode.t
+t/600_MKDoc_XML_Dumper_Freeze.t
+t/601_MKDoc_XML_Dumper_Thaw.t
+t/602_MKDoc_XML_Dumper_Round.t
 t/data/sample.xml

@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'MKDoc::XML',
-    'VERSION'	        => '0.1',
+    'VERSION'	        => '0.2',
     'PREREQ_PM'		=> {},
 );
 

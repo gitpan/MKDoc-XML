@@ -1,5 +1,12 @@
 Revision history for MKDoc::XML 
 
+0.2 Thu Sep 11 16:19:46 2003
+    - Applied Bruno's documentation typo patches
+    - MKDoc::XML::Encode initial release
+    - MKDoc::XML::EncodeHO initial release
+    - MKDoc::XML::Decode initial release
+    - MKDoc::XML::Dumper initial release
+
 0.1 Thu Sep  4 12:02:03 2003
     - MKDoc::XML::Token initial release
     - MKDoc::XML::Tokenizer initial release

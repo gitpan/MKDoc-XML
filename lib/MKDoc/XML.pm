@@ -1,6 +1,6 @@
 =head1 NAME
 
-MKDoc::XML - Do XML and XHTML stuff the MKDoc way
+MKDoc::XML - The MKDoc XML Toolkit
 
 
 =head1 SYNOPSIS
@@ -15,7 +15,7 @@ standards compliance, accessiblity and usability issues, and multi-lingual
 websites.
 
 At MKDoc Ltd we have decided to gradually break up our existing commercial
-software into a collection of completely independant, well-documented,
+software into a collection of completely independent, well-documented,
 well-tested open-source CPAN modules.
 
 Ultimately we want MKDoc code to be a coherent collection of module
@@ -34,45 +34,65 @@ see as a standalone CPAN module, send an email to
 =head1 WHAT'S IN THE BOX
 
 
-=head2 An XML tokenizer
+=head2 XML tokenizer
 
-L<MKDoc::XML::Tokenizer> will split your XML / XHTML files into a list of
+L<MKDoc::XML::Tokenizer> splits your XML / XHTML files into a list of
 L<MKDoc::XML::Token> objects using a single regex.
 
 
-=head2 An XML tree builder
+=head2 XML tree builder
 
 L<MKDoc::XML::TreeBuilder> sits on top of L<MKDoc::XML::Tokenizer> and builds
 parsed trees out of your XML / XHTML data.
 
 
-=head2 An XML stripper
+=head2 XML stripper
 
-L<MKDoc::XML::Stripper> objects will remove unwanted markup from
+L<MKDoc::XML::Stripper> objects removes unwanted markup from
 your XML / HTML data. Useful to remove all those nasty presentational tags
 or 'style' attributes from your XHTML data for example.
 
 
-=head2 An XML tagger
+=head2 XML tagger
 
-L<MKDoc::XML::Tagger> module will match expressions in XML / XHTML documents
+L<MKDoc::XML::Tagger> module matches expressions in XML / XHTML documents
 and tag them appropriately. For example, you could automatically hyperlink
 certain glossary words or add <abbr> tags based on a dictionary of abbreviations
 and acronyms.
 
 
-=head1 TODO
+=head2 HTML entity decoder
 
-Rewrite L<MKDoc::XML::Dumper> to use L<MKDoc::XML::TreeBuilder>, write a test
-suite (even a small one) for L<MKDoc::XML::Dumper>, and add L<MKDoc::XML::Dumper>
-to this distribution.
+L<MKDoc::XML::DecodeHO> decodes HTML entities only, leaving &apos; &quot; &gt;
+&lt; and &amp; untouched.
+
+
+=head2 XML entity decoder
+
+L<MKDoc::XML::Decode> decodes &apos; &quot; &gt; &lt; and &amp; only, leaving
+any other entity untouched.
+
+
+=head2 XML entity encoder
+
+L<MKDoc::XML::Encode> does the exact reverse operation as L<MKDoc::XML::Decode>.
+
+
+=head2 XML Dumper
+
+L<MKDoc::XML::Dumper> serializes arbitrarily complex perl structures into XML strings.
+It is also able of doing the reverse operation, i.e. deserializing an XML string into
+a perl structure.
+
+
+=head1 TODO
 
 Write a L<Petal> parser based on L<MKDoc::XML::Tokenizer>. Since Petal is part
 of the MKDoc open-source effort, it makes sense for Petal to rely primarily on
 MKDoc::XML, especially since MKDoc::XML::* modules are pure perl.
 
 This would bring some extra consistency across MKDoc module distributions
-and remove the dependency on XML::Parser.
+and remove the Petal dependency on XML::Parser.
 
 
 =head1 AUTHOR

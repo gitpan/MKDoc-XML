@@ -152,7 +152,7 @@ Splits $some_xml into a list of L<MKDoc::XML::Token> objects and returns
 an array reference to the list of tokens.
 
 
-=head2 my $tokens = MKDoc::XML::Tokenizer->process_data ('/some/file.xml');
+=head2 my $tokens = MKDoc::XML::Tokenizer->process_file ('/some/file.xml');
 
 Same as MKDoc::XML::Tokenizer->process_data ($some_xml), except that it
 reads $some_xml from '/some/file.xml'.

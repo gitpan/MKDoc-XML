@@ -66,7 +66,7 @@ sub _process_recurse
 	
 	$node = $token->is_tag_open() and do {
 	    my $descendants   = _descendant_tokens ($token, $tokens);
-	    $node->{contents} = _process_recurse ($descendants);
+	    $node->{_content} = _process_recurse ($descendants);
 	    push @result, $node;
 	    next;
 	};
@@ -132,7 +132,7 @@ __END__
 
 =head1 NAME
 
-MKDoc::XML::TreeBuilder - Builds parsed tree from XML data
+MKDoc::XML::TreeBuilder - Builds a parsed tree from XML data
 
 
 =head1 SYNOPSIS
@@ -144,7 +144,7 @@ MKDoc::XML::TreeBuilder - Builds parsed tree from XML data
 
 L<MKDoc::XML::TreeBuilder> uses L<MKDoc::XML::Tokenizer> to turn XML data
 into a parsed tree. Basically it smells like an XML parser, looks like an
-XML parser, an awfully overlaps with XML parsers.
+XML parser, and awfully overlaps with XML parsers.
 
 But it's not an XML parser.
 

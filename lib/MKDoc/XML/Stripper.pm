@@ -148,7 +148,7 @@ MKDoc::XML::Stripper - Remove unwanted XML / XHTML tags and attributes
   use MKDoc::XML::Stripper;
 
   my $stripper = new MKDoc::XML::Stripper;
-  $stripper->allow (qw /p class div/);
+  $stripper->allow (qw /p class id/);
 
   my $ugly = '<p class="para" style="color:red">Hello, <strong>World</strong>!</p>';
   my $neat = $stripper->process_data ($ugly);
@@ -161,11 +161,10 @@ Should print:
 
 =head1 SUMMARY
 
-MKDoc::XML::Stripper is a class which lets you specify a set of tag and attributes
-which you want to allow, and then cheekily strip any XML you send out of those unwanted
-tags.
+MKDoc::XML::Stripper is a class which lets you specify a set of tags and attributes
+which you want to allow, and then cheekily strip any XML of unwanted tags and attributes.
 
-In MKDoc, this is used so that editors use structural rather than presentational tags,
+In MKDoc, this is used so that editors use structural XHTML rather than presentational tags,
 i.e. strip anything which looks like a <font> tag, a 'style' attribute or other tags
 which would break separation of structure from content.
 
