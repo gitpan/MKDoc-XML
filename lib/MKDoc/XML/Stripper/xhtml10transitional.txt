@@ -1251,28 +1251,6 @@ meta scheme
 meta xml:lang
 
 
-# noframes
-# alternate content container for non frame-based rendering
-
-noframes class
-noframes dir
-noframes id
-noframes lang
-noframes onclick
-noframes ondblclick
-noframes onkeydown
-noframes onkeypress
-noframes onkeyup
-noframes onmousedown
-noframes onmousemove
-noframes onmouseout
-noframes onmouseover
-noframes onmouseup
-noframes style
-noframes title
-noframes xml:lang
-
-
 # noscript
 # alternate content container for non script-based rendering
 

@@ -5,11 +5,12 @@ use strict;
 use warnings;
 use MKDoc::XML::Decode;
 
-is (MKDoc::XML::Decode->process ('Hello, &lt;'), 'Hello, <');
-is (MKDoc::XML::Decode->process ('Hello, &gt;'), 'Hello, >');
-is (MKDoc::XML::Decode->process ('Hello, &amp;'), 'Hello, &');
-is (MKDoc::XML::Decode->process ('Hello, &quot;'), 'Hello, "');
-is (MKDoc::XML::Decode->process ('Hello, &apos;'), 'Hello, \'');
+my $decode = new MKDoc::XML::Decode (qw /xml xhtml numeric/);
+is ($decode->process ('Hello, &lt;'), 'Hello, <');
+is ($decode->process ('Hello, &gt;'), 'Hello, >');
+is ($decode->process ('Hello, &amp;'), 'Hello, &');
+is ($decode->process ('Hello, &quot;'), 'Hello, "');
+is ($decode->process ('Hello, &apos;'), 'Hello, \'');
 
 
 1;

@@ -1,5 +1,13 @@
 Revision history for MKDoc::XML 
 
+0.60 Thu Oct  9 16:54:44 2003
+    - Refactored / Modularized MKDoc::XML::Decode
+    - MKDoc whitelist: added required xml container (html), head, title and body
+    - MKDoc whitelist: recreated from xhtml 1.0 strict
+    - MKDoc whitelist: updated test case t/402_MKDoc_XML_Stripper_def.t
+    - Fixed error reporting in MKDoc::XML::TreeBuilder
+    - Removed "noframes" element from xhtml 1.0 transitional
+
 0.53 Tue Sep 30 10:49:06 2003
     - Fixed a structural bug in MKDoc::XML::Token
     - Renamed all is_XXX methods to XXX

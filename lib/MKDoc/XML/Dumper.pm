@@ -147,7 +147,9 @@ sub xml_to_perl_litteral
     ref $tree                   or return ();
     $tree->{_tag} eq 'litteral' or return ();
     return undef if ($tree->{undef} and $tree->{undef} eq 'true');
-    return MKDoc::XML::Decode->process ($tree->{_content}->[0]);
+    
+    my $decode = new MKDoc::XML::Decode ('xml');
+    return $decode->process ($tree->{_content}->[0]);
 }
 
 

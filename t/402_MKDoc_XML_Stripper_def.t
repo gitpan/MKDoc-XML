@@ -11,16 +11,15 @@ use MKDoc::XML::Stripper;
     $stripper->load_def ('mkdoc16');
 
     # check that a few values are really there
-    ok ($stripper->{tr}->{'lang'});
-    ok ($stripper->{tr}->{'align'});
-    ok ($stripper->{tr}->{'valign'});
-    ok ($stripper->{tr}->{'char'});
-    ok ($stripper->{tr}->{'title'});
-    ok ($stripper->{tr}->{'id'});
-    ok ($stripper->{tr}->{'class'});
-    ok ($stripper->{tr}->{'xml:lang'});
-    ok ($stripper->{tr}->{'charoff'});
-    ok ($stripper->{tr}->{'dir'});
+    ok ($stripper->{area}->{'href'});
+    ok ($stripper->{dfn}->{'lang'});
+    ok ($stripper->{h3}->{'id'});
+    ok ($stripper->{h6}->{'xml:lang'});
+    ok ($stripper->{img}->{'lang'});
+    ok ($stripper->{legend}->{'class'});
+    ok ($stripper->{object}->{'dir'});
+    ok ($stripper->{span}->{'dir'});
+    ok ($stripper->{th}->{'id'});
 }
 
 

@@ -2,7 +2,7 @@ package MKDoc::XML;
 use strict;
 use warnings;
 
-our $VERSION = '0.53';
+our $VERSION = '0.60';
 
 
 1;
@@ -76,29 +76,23 @@ parsed trees out of your XML / XHTML data.
 
 =head2 XML stripper
 
-L<MKDoc::XML::Stripper> objects removes unwanted markup from
-your XML / HTML data. Useful to remove all those nasty presentational tags
-or 'style' attributes from your XHTML data for example.
+L<MKDoc::XML::Stripper> objects removes unwanted markup from your XML / HTML
+data. Useful to remove all those nasty presentational tags or 'style'
+attributes from your XHTML data for example.
 
 
 =head2 XML tagger
 
-L<MKDoc::XML::Tagger> module matches expressions in XML / XHTML documents
-and tag them appropriately. For example, you could automatically hyperlink
-certain glossary words or add <abbr> tags based on a dictionary of abbreviations
-and acronyms.
-
-
-=head2 HTML entity decoder
-
-L<MKDoc::XML::DecodeHO> decodes HTML entities only, leaving &apos; &quot; &gt;
-&lt; and &amp; untouched.
+L<MKDoc::XML::Tagger> module matches expressions in XML / XHTML documents and
+tag them appropriately. For example, you could automatically hyperlink certain
+glossary words or add <abbr> tags based on a dictionary of abbreviations and
+acronyms.
 
 
 =head2 XML entity decoder
 
-L<MKDoc::XML::Decode> decodes &apos; &quot; &gt; &lt; and &amp; only, leaving
-any other entity untouched.
+L<MKDoc::XML::Decode> is a pluggable, configurable entity expander module which
+currently supports html entities, numerical entities and basic xml entities.
 
 
 =head2 XML entity encoder

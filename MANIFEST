@@ -4,7 +4,9 @@ Makefile.PL
 README
 lib/MKDoc/XML.pm
 lib/MKDoc/XML/Decode.pm
-lib/MKDoc/XML/DecodeHO.pm
+lib/MKDoc/XML/Decode/Numeric.pm
+lib/MKDoc/XML/Decode/XHTML.pm
+lib/MKDoc/XML/Decode/XMLBase.pm
 lib/MKDoc/XML/Dumper.pm
 lib/MKDoc/XML/Encode.pm
 lib/MKDoc/XML/Stripper.pm

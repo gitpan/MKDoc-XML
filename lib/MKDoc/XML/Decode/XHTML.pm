@@ -1,20 +1,6 @@
-# -------------------------------------------------------------------------------------
-# MKDoc::XML::DecodeHO - Decode HTML Only
-# -------------------------------------------------------------------------------------
-# Author : Jean-Michel Hiver <jhiver@mkdoc.com>.
-# Copyright : (c) MKDoc Holdings Ltd, 2003
-#
-# This module expands XHTML entities such as &nbsp; &Egrave; etc. into their
-# respective characters but NOT &amp; &gt; &lt; &quot; and &apos;.
-#
-# Heavily stolen from HTML::Entities.
-#
-# This module is distributed under the same license as Perl itself.
-# -------------------------------------------------------------------------------------
-package MKDoc::XML::DecodeHO;
+package MKDoc::XML::Decode::XHTML;
 use warnings;
 use strict;
-
 
 our %ENTITY_2_CHAR = (
  # Some normal chars that have special meaning in SGML context
@@ -284,89 +270,12 @@ our %ENTITY_2_CHAR = (
  ) : ())
 );
 
-
-##
-# $class->process ($xhtml);
-# -------------------------
-# Expands the HTML entities OTHER &apos; &quot; &gt; &lt; and &amp;
-# into their Unicode equivalents.
-##
 sub process
 {
     (@_ == 2) or warn "MKDoc::XML::Encode::process() should be called with two arguments";
-    
     my $class = shift;
-    
-    my $c = undef;
-    $_ = shift;
-    s/(&\#(\d+);?)/$2 < 256 ? chr($2) : $1/eg;
-    s/(&\#[xX]([0-9a-fA-F]+);?)/$c = hex($2); $c < 256 ? chr($c) : $1/eg;
-    s/(&(\w+);?)/$ENTITY_2_CHAR{$2} || $1/eg;
-    
-    return $_;
+    my $stuff = shift;
+    return $ENTITY_2_CHAR{$stuff};
 }
 
-
 1;
-
-
-__END__
-
-=head1 NAME
-
-MKDoc::XML::DecodeHO - Decode (H)TML (O)nly
-
-
-=head1 SYNOPSIS
-
-  use MKDoc::XML::DecodeHO;
-
-  # turn $string into "© &amp; ®"
-  my $string = '&copy; &amp; &reg;'
-  $string    = MKDoc::XML::DecodeHO->process ($string);
-
-
-=head1 SUMMARY
-
-MKDoc::XML::Decode is a very simple module which decodes HTML entities only,
-but NOT the following XML entities:
-
-  &apos;
-  &quot;
-  &gt;
-  &lt;
-  &amp;
-
-That's it. If you also wish to decode the above XML entities, use it in
-conjunction with L<MKDoc::XML::Decode>.
-
-In MKDoc everything is stored as UTF-8. Since Unicode is a character set wide enough,
-HTML and numerical entities are not needed. This modules turns them into their actual
-character.
-
-This module is heavily stolen from HTML::Entities.
-
-
-=head1 API
-
-=head2 my $decoded = MKDoc::XML::DecodeHO->process ($html);
-
-Does what is said in the summary.
-
-
-=head1 AUTHOR
-
-Copyright 2003 - MKDoc Holdings Ltd.
-
-Author: Jean-Michel Hiver <jhiver@mkdoc.com>
-
-This module is free software and is distributed under the same license as Perl
-itself. Use it at your own risk.
-
-
-=head1 SEE ALSO
-
-L<MKDoc::XML::Decode>
-L<MKDoc::XML::Encode>
-
-=cut

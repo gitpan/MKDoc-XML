@@ -72,8 +72,9 @@ sub _process_recurse
 	    push @result, $node;
 	    next;
 	};
-	
-	die qq |parse_error: Is this XML well-formed? (unexpected closing tag "$token")|;
+
+        my $token_as_string = $token->as_string();	
+	die qq |parse_error: Is this XML well-formed? (unexpected closing tag "$token_as_string")|;
     }
     
     return wantarray ? @result : \@result;
@@ -126,7 +127,8 @@ sub _descendant_tokens
     }
     
     return \@res if ($balance == 0);
-    die qq |parse_error: Is this XML well-formed? (could not find closing tag for "$token")|;
+    my $token_as_string = $token->as_string();
+    die qq |parse_error: Is this XML well-formed? (could not find closing tag for "$token_as_string")|;
 }
 
 
